@@ -430,7 +430,7 @@ ostream& operator<<(ostream& os, const MyString<U>& str) {
     }
     return os;
 }
-// Оператор присвоєння "сивол + об'єкт"
+// Оператор додавання "сивол + об'єкт"
 template<typename Y>
 MyString<Y> operator+(Y ch, const MyString<Y>& other) {
     MyString<Y> res;
@@ -479,9 +479,9 @@ int main() {
     cout << "\n\tSo, to continue enter string for test: ";
     cin >> str;
     cout << "\n\n";
-    cout << "\tOperators: " << "\n\tYourString \"+\" anotherString = " << str + B;
-    cout << "\n\tYourString \"+\" anotherSymbol = " << str + 'C';
-    cout << "\n\tAnotherSymbol \"+\" yourString = " << 'C' + str;
+    cout << "\tOperators: \n" << "\n\tYourString \"+\" anotherString = " << str + B;
+    cout << "\n\tYourString \"+\" anotherSymbol \"C\" = " << str + 'C';
+    cout << "\n\tAnotherSymbol \"C\" \"+\" yourString = " << 'C' + str;
     str += "anotherString";
     cout << "\n\tYour string \"+=\" anotherString = " << str;
     str += 'C';
@@ -500,8 +500,9 @@ int main() {
     a = ab != aa;
     cout << "\n\t ab \"!=\" a = " << a;
     cout << "\n\tYourStr * 3 = " << str * 3;
+    cout << "\n\tYourString[3] = " << str << "[3]" << " = " << str[3];
     //
-    cout << "\n\tMethods: \n\tYourString.length() = " << str.length() << "(" << str << ")";
+    cout << "\n\n\tMethods: \n\n\tYourString.length() = " << str.length() << "(" << str << ")";
     cout << "\n\tYourStr.IsEmpty() = " << str.isEmpty() << "\n\tYourStr.clear() = ";
     str.clear();
     cout << str << "\n\tYourStr.IsEmpty() = " << str.isEmpty();
