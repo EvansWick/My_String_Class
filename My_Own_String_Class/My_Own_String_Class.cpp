@@ -473,44 +473,67 @@ MyString<K> make_stringFromTwoPointers(const K* begin, const K* end) {
 }
 
 int main() {
-    MyString<char> str = "Example";
-    MyString<char> B = "anotherString";
-    cout << "\n\tHello! I writed my own string class \"MyString\". This is interface to check all functions";
-    cout << "\n\tSo, to continue enter string for test: ";
-    cin >> str;
-    cout << "\n\n";
-    cout << "\tOperators: \n" << "\n\tYourString \"+\" anotherString = " << str + B;
-    cout << "\n\tYourString \"+\" anotherSymbol \"C\" = " << str + 'C';
-    cout << "\n\tAnotherSymbol \"C\" \"+\" yourString = " << 'C' + str;
-    str += "anotherString";
-    cout << "\n\tYour string \"+=\" anotherString = " << str;
-    str += 'C';
-    cout << "\n\tYourString \"+=\" anotherSymbol = " << str;
-    MyString<char> ab = "ab", aa = "a";
-    bool a = ab > aa;
-    cout << "\n\t ab \">\" a = " << a;
-    a = ab < aa;
-    cout << "\n\t ab \"<\" a = " << a;
-    a = ab == aa;
-    cout << "\n\t ab \"==\" a = " << a;
-    a = ab <= aa;
-    cout << "\n\t ab \"<=\" a = " << a;
-    a = ab >= aa;
-    cout << "\n\t ab \">=\" a = " << a;
-    a = ab != aa;
-    cout << "\n\t ab \"!=\" a = " << a;
-    cout << "\n\tYourStr * 3 = " << str * 3;
-    cout << "\n\tYourString[3] = " << str << "[3]" << " = " << str[3];
-    //
-    cout << "\n\n\tMethods: \n\n\tYourString.length() = " << str.length() << "(" << str << ")";
-    cout << "\n\tYourStr.IsEmpty() = " << str.isEmpty() << "\n\tYourStr.clear() = ";
-    str.clear();
-    cout << str << "\n\tYourStr.IsEmpty() = " << str.isEmpty();
-    str = "ExampleTwo";
-    cout << "\n\tNow yourStr =  " << str;
-    ToStar s;
-    ToUpper l;
-    cout << "\n\tYourStr.mapped(ToStar) = " << str.mapped(s) << " and YourStr.transform(ToLower) = " << str.transform(l);
-    cout << "\n\tYourStr.substr(0, 4) = " << str.substr(0, 4);
+    while (true)
+    {
+        MyString<char> select = "Example";
+        MyString<char> B = "anotherString";
+        cout << "\n\n\tHello! I writed my own string class \"MyString\". This is interface to check all functions";
+        cout << "\n\tEnter \"/Methotds\" to check examples of methods";
+        cout << "\n\tEnter \"/Operators\" to check examples of methods";
+        cout << "\n\tEnter \"/ChangeTo\" to check examples of methods";
+        cout << "\n\n\tEnter command: ";
+        cin >> select;
+        if (select == "/Methods") {
+            MyString<char> strM;
+            cout << "\n\tEnter your string: ";
+            cin >> strM;
+            cout << "\n\n\tMethods: \n\n\tYourString.length() = " << strM.length() << "(" << strM << ")";
+            cout << "\n\tYourStr.IsEmpty() = " << strM.isEmpty() << "(1 = true, 0 = false)" << "\n\tYourStr.clear() = ";
+            strM.clear();
+            cout << strM << "\n\tYourStr.IsEmpty() = " << strM.isEmpty() << "(1 = true, 0 = false)";
+
+        }
+        if (select == "/Operators") {
+            MyString<char> strM, strO;
+            char C;
+            cout << "\n\tEnter your string: ";
+            cin >> strM;
+            cout << "\tEnter your 2-d string: ";
+            cin >> strO;
+            cout << "\tEnter your symbol: ";
+            cin >> C;
+            cout << "\tOperators: \n" << "\n\tYourString \"+\" anotherString = " << "\"" << strM + strO << "\"";
+            cout << "\n\tYourString \"+\" yourSymbol = " << "\"" << strM + C << "\"";
+            cout << "\n\tyourSymbol \"C\" \"+\" yourString = " << "\"" << C + strM << "\"";
+            strM += strO;
+            cout << "\n\tYour string \"+=\" anotherString = " << "\"" << strM << "\"";
+            strM += C;
+            cout << "\n\tYourString \"+=\" anotherSymbol = " << "\"" << strM << "\"";
+            bool a = strM > strO;
+            cout << "\n\t" << strM << " > " << strO << " = " << a << "(1 = true, 0 = false)";
+            a = strM < strO;
+            cout << "\n\t" << strM << " < " << strO << " = " << a << "(1 = true, 0 = false)";
+            a = strM == strO;
+            cout << "\n\t" << strM << " == " << strO << " = " << a << "(1 = true, 0 = false)";
+            a = strM <= strO;
+            cout << "\n\t" << strM << " <= " << strO << " = " << a << "(1 = true, 0 = false)";
+            a = strM >= strO;
+            cout << "\n\t" << strM << " >= " << strO << " = " << a << "(1 = true, 0 = false)";
+            a = strM != strO;
+            cout << "\n\t" << strM << " != " << strO << " = " << a << "(1 = true, 0 = false)";
+            cout << "\n\tYourStr * 3 = " << strM * 3;
+            cout << "\n\tYourString[3] = " << strM << "[3]" << " = " << strM[3];
+        }
+        if (select == "/ChangeTo") {
+            MyString<char> strM;
+            cout << "\n\tEnter your string: ";
+            cin >> strM;
+            ToStar s;
+            ToUpper l;
+            cout << "\n\tYourStr.mapped(ToStar) = " << strM.mapped(s) << " and YourStr.transform(ToUpper) = " << strM.transform(l);
+            cout << "\n\tYourStr.substr(0, 4) = " << strM.substr(0, 4);
+
+        }
+    }
     return 0;
 }
